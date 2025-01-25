@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="kr">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width", initial-scale="1.0">
+        <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
+        <title>Job Scrapper</title>
+    </head>
+    <body>
+        <main class="container">
+            <hgroup>
+                <h1>Search Results for "{{keyword}}" : </h1>
+                <a target="_blank" href="/export?keyword={{keyword}}">Export to file</a>
+            </hgroup>
+            <figure>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Site-Name</th>
+                            <th>Company</th>
+                            <th>Skills</th>
+                            <th>description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {% for job in jobs %}
+                        <tr>
+                            <td>{{job.site_name}}</td>
+                            <td>{{job.company_name}}</td> 
+                            <td>{{job.skill_name}}</td>
+                            <td>{{job.description}}</td>
+                         </tr> 
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </figure>
+        </main>
+    </body>
+</html>
